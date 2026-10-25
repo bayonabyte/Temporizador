@@ -35,7 +35,7 @@ const limaClock = new Intl.DateTimeFormat('es-PE', {
     hourCycle: 'h23'
 });
 
-let configuredSeconds = 300;
+let configuredSeconds = 0;
 let remainingMs = configuredSeconds * 1000;
 
 let deadline = 0;
@@ -414,7 +414,7 @@ resetButton.addEventListener('click', () => {
     running = false;
     hasStarted = false;
 
-    configuredSeconds = 300;
+    configuredSeconds = 0;
     remainingMs = configuredSeconds * 1000;
 
     startLabel.textContent = '--:--:--';
