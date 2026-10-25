@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPC - Temporizador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button
+    id="btn-fullscreen"
+    class="btn-fullscreen"
+    type="button"
+    aria-label="Activar pantalla completa"
+    title="Pantalla completa">
+        ⛶
+    </button>
+
+
+    <main class="container">
+
+        <img src="upc.png" alt="Logo UPC" class="logo">
+        <h1>Matemática Computacional</h1>
+
+        <div class="datos">
+            <p>Antonio Marcos Medina Martínez</p>
+            <p>NRC: 15401</p>
+        </div>
+
+        <div class="informacion">
+            <div>
+                <span>Hora de inicio:</span>
+                <strong id="hora-inicio">--:--:--</strong>
+            </div>
+
+            <div>
+                <span>Hora final:</span>
+                <strong id="hora-final">--:--:--</strong>
+            </div>
+        </div>
+
+        <div class="temporizador" id="temporizador">
+            <svg class="progreso" viewBox="0 0 240 240" aria-hidden="true">
+                <circle class="pista" cx="120" cy="120" r="106"/>
+                <circle class="avance" id="avance" cx="120" cy="120" r="106"/>
+            </svg>
+            <div class="reloj" id="reloj" aria-label="Duración en minutos y segundos">
+                <input id="minutos" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" value="05" aria-label="Minutos" autocomplete="off">
+                <span>:</span>
+                <input id="segundos" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="00" aria-label="Segundos" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="ajustes">
+            <button type="button" class="btn btn-add" data-add="60">+01:00</button>
+            <button type="button" class="btn btn-add" data-add="300">+05:00</button>
+            <button type="button" class="btn btn-add" data-add="600">+10:00</button>
+        </div>
+
+        <div class="controls">
+            <button type="button" class="btn btn-play" id="play">▶ Play</button>
+            <button type="button" class="btn btn-stop" id="stop">■ Stop</button>
+            <button type="button" class="btn btn-reset" id="reset">↻ Reset</button>
+        </div>
+
+        <p id="estado" role="status" aria-live="polite"></p>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

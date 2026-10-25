@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: black;
+    padding: 24px;
+}
+
+.container {
+    width: min(100%, 520px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    background: white;
+    padding: 28px 24px 32px;
+    border-radius: 24px;
+    box-shadow: 0 10px 35px #00000030;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+h1 {
+    font-size: clamp(20px, 4vw, 26px);
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.informacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    gap: 16px;
+}
+
+.informacion > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.informacion > div:last-child {
+    text-align: right;
+}
+
+.informacion span {
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+}
+
+.informacion strong {
+    font-size: clamp(15px, 4vw, 20px);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.temporizador {
+    width: min(280px, 78vw);
+    aspect-ratio: 1;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.progreso {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progreso circle {
+    fill: none;
+    stroke-width: 12;
+}
+
+.pista {
+    stroke: white;
+}
+
+.avance {
+    stroke: #d71920;
+    stroke-linecap: round;
+    stroke-dasharray: 666.018;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset .12s linear;
+}
+
+.reloj {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    font-size: clamp(34px, 8vw, 46px);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.reloj input {
+    font: inherit;
+    color: inherit;
+    border: none;
+    background: transparent;
+    text-align: center;
+    outline: none;
+    box-shadow: none;
+    width: 2ch;
+    min-width: 0;
+    padding: 3px 0;
+    border-radius: 0;
+}
+
+.reloj #minutos {
+    width: 2ch;
+}
+
+.reloj input:focus {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+.reloj input:disabled {
+    opacity: 1;
+    -webkit-text-fill-color: black;
+}
+
+.reloj span {
+    padding: 0;
+    margin: 0 4px;
+    line-height: 1;
+}
+
+.ajustes,
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .12s, background .12s;
+}
+
+.btn:active {
+    transform: scale(.95);
+}
+
+.btn:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.btn-add {
+    background: whitesmoke;
+    color: #a91017;
+}
+
+.btn-add:hover:not(:disabled) {
+    background: white;
+}
+
+.btn-play {
+    background: #d71920;
+    color: white;
+}
+
+.btn-stop {
+    background: black;
+    color: white;
+}
+
+.btn-reset {
+    background: whitesmoke;
+    color: black;
+}
+
+#estado {
+    font-size: 12px;
+    color: black;
+    min-height: 18px;
+}
+
+/* BOTÓN PANTALLA COMPLETA */
+
+.btn-fullscreen {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #D71920;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 26px;
+    cursor: pointer;
+
+    z-index: 1000;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-fullscreen:hover {
+    background-color: #B51219;
+    transform: scale(1.08);
+}
+
+.btn-fullscreen:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 24px 14px;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 11px 12px;
+    }
+}
