@@ -39,12 +39,45 @@ h1 {
 }
 
 .datos {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
     font-size: 16px;
     font-weight: 500;
     color: black;
+}
+
+.datos input {
+    width: 100%;
+    min-width: 0;
+    padding: 6px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+}
+
+.datos input::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+.datos input:hover {
+    border-color: #ddd;
+}
+
+.datos input:focus {
+    outline: 2px solid #d71920;
+    outline-offset: 2px;
+}
+
+.seccion {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .informacion {

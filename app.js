@@ -20,6 +20,16 @@ const resetButton = document.getElementById('reset');
 const addButtons = [...document.querySelectorAll('[data-add]')];
 const btnFullscreen = document.getElementById('btn-fullscreen');
 
+// Iniciar con los campos vacíos cada vez que se carga la página.
+['nombre-docente', 'codigo-seccion'].forEach(id => {
+    const input = document.getElementById(id);
+    input.value = '';
+
+    input.addEventListener('keydown', event => {
+        if (event.key === 'Enter') input.blur();
+    });
+});
+
 // ==========================================
 // CONFIGURACIÓN
 // ==========================================

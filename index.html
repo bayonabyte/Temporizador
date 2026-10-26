@@ -26,11 +26,6 @@
         <img src="upc.png" alt="Logo UPC" class="logo">
         <h1>Matemática Computacional</h1>
 
-        <div class="datos">
-            <p>Antonio Marcos Medina Martínez</p>
-            <p>NRC: 15401</p>
-        </div>
-
         <div class="informacion">
             <div>
                 <span>Hora de inicio:</span>
@@ -67,7 +62,15 @@
             <button type="button" class="btn btn-reset" id="reset">↻ Reset</button>
         </div>
 
+        <div class="datos">
+            <input id="nombre-docente" type="text" placeholder="Nombre del Docente" aria-label="Nombre del docente" autocomplete="off">
+            <label class="seccion">
+                <input id="codigo-seccion" type="text" placeholder="NRC" aria-label="Código de la sección" autocomplete="off">
+            </label>
+        </div>
+
         <p id="estado" role="status" aria-live="polite"></p>
+
 
     </main>
 
