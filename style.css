@@ -5,31 +5,41 @@
     font-family: "Montserrat", sans-serif;
 }
 
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
     color: black;
-    padding: 24px;
+    padding: clamp(8px, 2dvh, 24px);
 }
 
 .container {
     width: min(100%, 520px);
-    display: flex;
-    flex-direction: column;
+    height: min(100%, 850px);
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto auto auto auto;
     align-items: center;
-    gap: 24px;
+    justify-items: center;
+    gap: clamp(6px, 2dvh, 24px);
     text-align: center;
     background: white;
-    padding: 28px 24px 32px;
+    padding: clamp(8px, 2dvh, 28px) clamp(10px, 3vw, 24px);
     border-radius: 24px;
     box-shadow: 0 10px 35px #00000030;
 }
 
 .logo {
-    width: 150px;
+    width: clamp(64px, 14dvh, 150px);
     height: auto;
     object-fit: contain;
 }
@@ -112,7 +122,11 @@ h1 {
 }
 
 .temporizador {
-    width: min(280px, 78vw);
+    height: 100%;
+    max-height: 280px;
+    min-height: 0;
+    width: auto;
+    max-width: 100%;
     aspect-ratio: 1;
     position: relative;
     display: grid;
@@ -150,7 +164,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 0;
-    font-size: clamp(34px, 8vw, 46px);
+    font-size: clamp(22px, min(8vw, 7dvh), 46px);
     font-weight: 600;
     font-variant-numeric: tabular-nums;
 }
@@ -195,12 +209,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;
+    gap: clamp(4px, 2vw, 10px);
 }
 
 .btn {
-    padding: 12px 16px;
+    padding: clamp(6px, 1.4dvh, 12px) clamp(7px, 2vw, 16px);
     border: 1px solid transparent;
     border-radius: 12px;
     font-size: 14px;
@@ -252,8 +266,8 @@ h1 {
 
 .btn-fullscreen {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: max(8px, env(safe-area-inset-top));
+    right: max(8px, env(safe-area-inset-right));
 
     width: 45px;
     height: 45px;
@@ -285,12 +299,26 @@ h1 {
 }
 
 @media (max-width: 400px) {
+    h1 {
+        font-size: 18px;
+    }
+}
+
+/* En horizontal, repartir el contenido permite conservar el espacio del reloj. */
+@media (max-height: 500px) and (min-aspect-ratio: 6/5) {
     .container {
-        padding: 24px 14px;
-        gap: 20px;
+        width: min(100%, 900px);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto auto auto auto auto minmax(18px, auto);
+        column-gap: 20px;
     }
 
-    .btn {
-        padding: 11px 12px;
-    }
+    .logo { grid-column: 1; grid-row: 1; }
+    h1 { grid-column: 2; grid-row: 1; font-size: 18px; }
+    .informacion { grid-column: 2; grid-row: 2; width: 100%; }
+    .temporizador { grid-column: 1; grid-row: 2 / 7; }
+    .ajustes { grid-column: 2; grid-row: 3; }
+    .controls { grid-column: 2; grid-row: 4; }
+    .datos { grid-column: 2; grid-row: 5; }
+    #estado { grid-column: 2; grid-row: 6; }
 }
